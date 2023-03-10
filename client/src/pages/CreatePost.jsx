@@ -18,9 +18,12 @@ const CreatePost = () => {
   const generateImage = () => {};
   const handleSubmit = () => {};
   const handleChange = (e) => {
-    e.preventDefault();
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSurpriseMe = () => {};
+  const handleSurpriseMe = () => {
+    const randomPrompt = getRandomPrompt(form.prompt);
+    setForm({ ...form, prompt: randomPrompt });
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
