@@ -8,4 +8,8 @@ dotnev.config();
 
 const router = express.Router();
 
+router.route("/").get((req, res) => {
+  res.send("hello from post");
+});
+
 export default router;
