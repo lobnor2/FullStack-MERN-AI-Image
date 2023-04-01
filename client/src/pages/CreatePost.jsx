@@ -35,19 +35,23 @@ const CreatePost = () => {
           body: JSON.stringify({ prompt: form.prompt }),
         });
         const data = await response.json();
+        console.log("this is after const data ");
+        console.log(data);
         setForm({
           ...form,
           photo: `data:image/jpeg;base64,${data.photo}`,
         });
       } catch (error) {
-        console.log(error);
-        console.log("hellow");
-        alert(error.message);
+        // console.log(error);
+        console.log("This is try block");
+        //alert(error.message);
       } finally {
+        console.log("This is finally");
         setGeneratingImg(false);
       }
     } else {
       alert("Please enter a prompt");
+      console.log("This is else part when prompt in form is empty");
     }
   };
   const handleSubmit = async (e) => {

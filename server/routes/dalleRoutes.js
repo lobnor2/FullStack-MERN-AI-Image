@@ -13,9 +13,10 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 router.route("/").get((req, res) => {
-  res.status(200).json({ message: "hellow from Dalle routes" });
+  res.status(200).json({ message: "hello from Dalle route" });
 });
 
+//hit this post when user click on generate button
 router.route("/").post(async (req, res) => {
   try {
     const { prompt } = req.body; //this comes from frontend side
@@ -32,7 +33,9 @@ router.route("/").post(async (req, res) => {
     res.status(200).json({ photo: image }); //get image and sending it back to frontend
   } catch (error) {
     // res.status(500).json(error?.response.data.error.message);
-    res.status(500).json("hello this is error");
+    res
+      .status(500)
+      .json("hello this is error coming from catch block in dalleroutes");
   }
 });
 
