@@ -38,10 +38,17 @@ const CreatePost = () => {
         const data = await response.json();
         console.log("this is after const data ");
         console.log(data);
-        setForm({
-          ...form,
-          photo: `data:image/jpeg;base64,${data.photo}`,
-        });
+        {
+          data == undefined
+            ? setForm({
+                ...form,
+                photo: `data:image/jpeg;base64,${data.photo}`,
+              })
+            : setForm({
+                ...form,
+                photo: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1hJpmHLpKvSKRXn1xYDmvSVkyckbZSHmlfw&usqp=CAU`,
+              });
+        }
       } catch (error) {
         // console.log(error);
         console.log("This is try block");
