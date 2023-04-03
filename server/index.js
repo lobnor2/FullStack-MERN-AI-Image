@@ -5,9 +5,9 @@ import connectDB from "./mongodb/connect.js"; //write .js after file or else it 
 import postRoutes from "./routes/postRoutes.js";
 import dalleRoutes from "./routes/dalleRoutes.js";
 
-dotenv.config(); //help us pull environment var from .env file
+dotenv.config();
 
-const app = express(); //initialised express application
+const app = express();
 app.use(cors()); //middleware
 app.use(express.json({ limit: "50mb" })); //middleware
 
@@ -15,7 +15,6 @@ app.use(express.json({ limit: "50mb" })); //middleware
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
 
-//first route
 app.get("/", async (req, res) => {
   res.status(200).json({
     message: "Hello from dalle",
